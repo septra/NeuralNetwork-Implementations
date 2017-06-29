@@ -1,5 +1,6 @@
 from tensorflow.examples.tutorials.mnist import input_data
 import tensorflow as tf
+import argparse
 
 mnist = input_data.read_data_sets('MNIST_data', one_hot=True)
 
@@ -23,6 +24,9 @@ output = tf.add(tf.matmul(layer2_activation, output_weight), output_bias)
 
 learn_rate = tf.placeholder(tf.float32)
 
+# This is a sample comment.
+# And yet another sample of how things will work out.
+# What about this one.
 
 cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=output, labels=y))
 optimizer = tf.train.AdamOptimizer(learn_rate).minimize(cost)
@@ -64,3 +68,18 @@ with tf.Session() as sess:
                                     x: mnist.test.images,
                                     y: mnist.test.labels})
     print('Testing Accuracy: {}'.format(test_acc))
+
+
+if __name__ == '__main__':
+    description = 'Deep network for classifying MNIST images.'
+
+    parser.add_argument(
+            '-e', '--epochs', type = int, help = 'Number of Epochs for training the network.')
+
+    parser.add_argument(
+            '-r', '--learnrate', type = float, help = 'Learning Rate used in training.')
+
+    parser.add_argument(
+            '-l', '--layers', type = list, help = 'List of the number of nodes in the hidden layers.')
+
+    args = parser.parse_args()
