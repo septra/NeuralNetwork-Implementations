@@ -1,7 +1,7 @@
 # NeuralNetwork-Implementations
 
 Code containing implementations of neural networks for different learning tasks.
-As of now, models have been implemented in Tensorflow using it's core API. High level libraries have not been made use of.
+As of now, models have been implemented in Tensorflow using it's core API. 
 
 ## Structure:
 ### **Iris:**
