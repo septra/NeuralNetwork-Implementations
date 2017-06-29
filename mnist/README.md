@@ -1,9 +1,9 @@
 ## Tensorflow for MNIST
 
-This is a command line interface for experimenting with different hyper-parameters in deep learning model implemented in Tensorflow.
+This is a command line interface for experimenting with hyper-parameters in deep learning models implemented in Tensorflow.
 
 The MNIST dataset is hosted on Yann LeCun's site [here](http://yann.lecun.com/exdb/mnist/).
-Tensorflow takes care of downloading, extracting and formatting the data into the proper form foruse in our neural network.
+Tensorflow takes care of downloading, extracting and formatting the data into the proper form for use in our neural networks.
 
 ```
 usage: tensorflow_mnist.py [-h] [-e EPOCHS] [-r LEARNRATE] [-l LAYERS]
@@ -28,12 +28,12 @@ Deeper and wider networks don't necessarily result in better performance as show
 
 
 ### Summary:
-| Epochs    | Learning Rate    | Number of Hidden Layers    | Hidden Node Architecture |
-| --------- |-----------------:| --------------------------:|:------------------------:|
-| 10        | 0.01             | 1                          | [20]                     |
-| 30        | 0.01             | 1                          | [20]                     |
-| 30        | 0.01             | 3                          | [20, 10, 20]             |
-| 100       | 0.01             | 3                          | [20, 10, 20]             |
+| Epochs    | Learning Rate    | Number of Hidden Layers    | Hidden Node Architecture    | Test Accuracy |
+| --------- |-----------------:| --------------------------:|:---------------------------:| :-------------|
+| 10        | 0.01             | 1                          | [20]                        | 0.928
+| 30        | 0.01             | 1                          | [20]                        | 0.948
+| 30        | 0.01             | 3                          | [20, 10, 20]                | 0.909
+| 100       | 0.01             | 3                          | [20, 10, 20]                | 0.935
 
 
 ```
