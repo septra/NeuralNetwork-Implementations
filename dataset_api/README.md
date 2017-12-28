@@ -1,0 +1,2 @@
+* **model.py** : Tensorflow application demonstrating the use of the `tf.data.Dataset` API with a conceptually simple fully connected network trained on the MNIST dataset.
+* **transfer_learning_model.py** : Model demonstrating the use of pre-trained layers for feature extraction. The final layer is stripped and a new layer which will be used to predict a subset of the original dataset is implemented (Classes 0, 1, 2 will be predicted). Only the final layer is trained in the new model.
