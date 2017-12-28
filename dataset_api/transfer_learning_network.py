@@ -113,7 +113,8 @@ with tf.Session() as sess:
     # Filter out the graph for variables which will be restored from previously
     # trained models and thus should not be initialized.
     init_vars = [var 
-            for var in tf.get_collection(tf.GraphKeys.GLOBAL_VARIABLES)
+            # for var in tf.get_collection(tf.GraphKeys.GLOBAL_VARIABLES)
+            for var in tf.global_variables()
             if not var.name.startswith("restorable")]
 
     # Using `tf.variable_initializer` and passing in the list of variables
@@ -128,6 +129,16 @@ with tf.Session() as sess:
     # were the same as those in the previous network but as we used the _restorable_
     # namespace, the correspondence was broken.
     # See: https://www.tensorflow.org/programmers_guide/saved_model
+
+    # Another alternative is to run the following snippet instead of the code above
+    # All the variables are initialized and then the _restorable_ variables are 
+    # overwritten with the previously trained model weights when we restore the model
+    # weights using `tf.train.Saver`
+    # See: https://stackoverflow.com/questions/41621071/restore-subset-of-variables-in-tensorflow
+    """
+    sess.run(tf.global_variables_initializer())
+    """
+
     saver = tf.train.Saver(var_list={
         "layer_1/weights":w1,
         "layer_1/biases" :b1,
