@@ -131,5 +131,5 @@ with tf.Session() as sess:
     print(f'Final test accuracy: {test_accuracy:>2.2f}')
 
     saver = tf.train.Saver()
-    saver.save(sess, 'checkpoint/model.ckpt')
-    file_writer = tf.summary.FileWriter('./logs/1', sess.graph)
+    saver.save(sess, 'checkpoint/model.ckpt') # This overwrites any previous checkpoints
+    file_writer = tf.summary.FileWriter('./logs/1', sess.graph) # This doesn't overwrite previous summary files and each new file can run into a few hundred MBs.
